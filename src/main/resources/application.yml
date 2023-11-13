@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:h2:mem:doctor_appointment
     driver-class-name: org.h2.Driver
-    username : sa
+    username: sa
     password:
   jpa:
     hibernate:
