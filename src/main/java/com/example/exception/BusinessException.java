@@ -15,7 +15,7 @@ public class BusinessException extends RuntimeException{
         this.errorResponse = errorResponse;
     }
 
-    private ErrorResponse getErrorResponse(){
+    public ErrorResponse getErrorResponse(){
         return errorResponse;
     }
 }

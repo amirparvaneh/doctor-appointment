@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.util.Locale;
+
 @RestControllerAdvice
 public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
 
@@ -22,6 +24,9 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
     }
     @ExceptionHandler(BusinessException.class)
     public ResponseEntity<ErrorResponse> exceptionAdviceHandler(BusinessException exception){
-
+        log.info(" an exception occurred because of : " + exception.getMessage());
+        exception.getErrorResponse().setMessage(messageSource.getMessage(exception.getErrorResponse().getMessage(),
+                exception.getErrorResponse().getParams(), Locale.getDefault()));
+        return new ResponseEntity<>(exception.getErrorResponse(),exception.getErrorResponse().getStatusCode());
     }
 }
