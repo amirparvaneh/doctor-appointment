@@ -1,29 +1,28 @@
 package com.example.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Entity
+@Table(name = "PATIENT_APPOINTMENT")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Appointment extends BaseEntity{
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "start_time")
-    private Date startTime;
+    @Column(name = "firstName")
+    private String patientFirstName;
+    @Column(name = "lastName")
+    private String patientLastName;
+    @Column(name = "phoneNumber",unique = true)
+    private String patientPhoneNumber;
 
-    @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
-    @ManyToOne
-    @JoinColumn(name = "doctor_id")
-    private Doctor doctor;
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    @OneToOne
+    @JoinColumn(name = "open_time_slot_id")
+    @JsonIgnore
+    private OpenTimeSlot openTimeSlot;
 }
