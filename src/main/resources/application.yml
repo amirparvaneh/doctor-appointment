@@ -1,4 +1,6 @@
 spring:
+  messages:
+    basename: message
   datasource:
     url: jdbc:h2:mem:doctor_appointment
     driver-class-name: org.h2.Driver

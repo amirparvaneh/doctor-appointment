@@ -1,5 +1,6 @@
 package com.example.global;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,22 +18,23 @@ public class ErrorResponse {
     private String message;
     private String errorCode;
     private HttpStatus statusCode;
-    private Map<String,Object> errorDetails = new HashMap<>();
+    @JsonIgnore
+    private Map<String, Object> errorDetails = new HashMap<>();
+    @JsonIgnore
     private Object[] params;
 
-    public ErrorResponse(String message, String errorCode, HttpStatus statusCode, Object... params){
+    public ErrorResponse(String message, String errorCode, HttpStatus statusCode, Object... params) {
         this.message = message;
         this.errorCode = errorCode;
         this.statusCode = statusCode;
-        if (Objects.nonNull(params)){
+        if (Objects.nonNull(params)) {
             setErrorDetails(params);
         }
     }
 
-
-    private void setErrorDetails(Object... params){
-        for (Object param : params){
-            this.errorDetails.put(" param : ",String.valueOf(param));
+    private void setErrorDetails(Object... params) {
+        for (Object param : params) {
+            this.errorDetails.put(" param : ", String.valueOf(param));
         }
     }
 }

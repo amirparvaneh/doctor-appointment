@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -17,11 +20,11 @@ import java.util.List;
 public class OpenTime extends BaseEntity{
 
     @Column(name = "open_date")
-    private Date date;
+    private LocalDate date;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date starTime;
+    private LocalDateTime starTime;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date endTime;
+    private LocalDateTime endTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doctor_id")

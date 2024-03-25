@@ -19,14 +19,15 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
 
     private final MessageSource messageSource;
 
-    public ExceptionHandlerAdvice(MessageSource messageSource){
+    public ExceptionHandlerAdvice(MessageSource messageSource) {
         this.messageSource = messageSource;
     }
+
     @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<ErrorResponse> exceptionAdviceHandler(BusinessException exception){
+    public ResponseEntity<ErrorResponse> exceptionAdviceHandler(BusinessException exception) {
         log.info(" an exception occurred because of : " + exception.getMessage());
         exception.getErrorResponse().setMessage(messageSource.getMessage(exception.getErrorResponse().getMessage(),
                 exception.getErrorResponse().getParams(), Locale.getDefault()));
-        return new ResponseEntity<>(exception.getErrorResponse(),exception.getErrorResponse().getStatusCode());
+        return new ResponseEntity<>(exception.getErrorResponse(), exception.getErrorResponse().getStatusCode());
     }
 }
