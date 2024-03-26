@@ -25,4 +25,8 @@ public class Appointment extends BaseEntity{
     @JoinColumn(name = "open_time_slot_id")
     @JsonIgnore
     private OpenTimeSlot openTimeSlot;
+
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
 }

@@ -7,11 +7,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class OpenTimeDto implements Serializable {
-
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
 }

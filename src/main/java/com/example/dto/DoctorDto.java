@@ -12,6 +12,5 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DoctorDto implements Serializable {
-
     private String name;
 }

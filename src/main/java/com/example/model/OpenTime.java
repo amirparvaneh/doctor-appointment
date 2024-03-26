@@ -21,9 +21,9 @@ public class OpenTime extends BaseEntity{
 
     @Column(name = "open_date")
     private LocalDate date;
-    @Temporal(TemporalType.TIMESTAMP)
+//    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime starTime;
-    @Temporal(TemporalType.TIMESTAMP)
+   //@Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime endTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -31,6 +31,6 @@ public class OpenTime extends BaseEntity{
     @JsonIgnore
     private Doctor doctor;
 
-    @OneToMany(mappedBy = "open_time")
+    @OneToMany(mappedBy = "openTime")
     private List<OpenTimeSlot> openTimeSlotList;
 }
