@@ -5,5 +5,5 @@ import com.example.dto.OpenTimeResponseDto;
 
 public interface OpenTimeService {
 
-    OpenTimeResponseDto addOpenTime(OpenTimeDto openTimeDto);
+    OpenTimeResponseDto addOpenTimeByDoctor(Long doctorId,OpenTimeDto openTimeDto);
 }

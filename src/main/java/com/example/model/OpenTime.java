@@ -8,8 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -17,14 +16,12 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OpenTime extends BaseEntity{
+public class OpenTime extends BaseEntity {
 
     @Column(name = "open_date")
     private LocalDate date;
-//    @Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime starTime;
-   //@Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime endTime;
+    private LocalTime starTime;
+    private LocalTime endTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doctor_id")
