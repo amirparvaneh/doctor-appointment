@@ -7,8 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -19,9 +18,9 @@ import java.util.List;
 public class OpenTime extends BaseEntity {
 
     @Column(name = "open_date")
-    private LocalDate date;
-    private LocalTime starTime;
-    private LocalTime endTime;
+    private LocalDateTime date;
+    private LocalDateTime starTime;
+    private LocalDateTime endTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doctor_id")

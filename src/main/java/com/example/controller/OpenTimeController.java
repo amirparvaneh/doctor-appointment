@@ -16,8 +16,8 @@ public class OpenTimeController {
 
     private final OpenTimeServiceImpl openTimeService;
 
-    @PostMapping(value = "/add-by-doctor")
-    public ResponseEntity<BaseResponse> addNewOpenTime(@RequestParam(value = "doctorId") Long doctorId,
+    @PostMapping(value = "/add-by-doctor/{doctorId}")
+    public ResponseEntity<BaseResponse> addNewOpenTime(@PathVariable(value = "doctorId") Long doctorId,
                                                        @RequestBody OpenTimeDto openTimeDto) {
         openTimeService.addOpenTimeByDoctor(doctorId, openTimeDto);
         return ResponseEntity.ok(BaseResponse.builder()

@@ -9,7 +9,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
+
 
 
 @Entity
@@ -19,8 +20,8 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OpenTimeSlot extends BaseEntity{
-    private LocalTime start_time;
-    private LocalTime end_time;
+    private LocalDateTime start_time;
+    private LocalDateTime end_time;
 
     @ManyToOne
     @JoinColumn(name = "open_time_id")

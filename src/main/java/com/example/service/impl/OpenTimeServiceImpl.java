@@ -11,8 +11,6 @@ import com.example.service.validation.ValidateDoctorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
-
 
 @Service
 @RequiredArgsConstructor
@@ -26,8 +24,8 @@ public class OpenTimeServiceImpl implements OpenTimeService {
 
         validateDoctor.validateDoctorById(doctorId);
         OpenTime openTime = OpenTimeMapper.INSTANCE.openTimeDtoToOpenTime(openTimeDto);
-        openTimeDto.getDate();
-        openTime.getStarTime().minusMinutes(30);
+
+
         return null;
     }
 }
